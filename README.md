@@ -1,9 +1,8 @@
 ## Get all tasks
 > Get https://todolistbysuyash.herokuapp.com/api/tasks/
 
-Sample Data 
 
-[
+    [
 	{
 		"_id": "61eebc65d43d907fcca74c1a",
 		"title": "Do the clothes",
@@ -17,14 +16,13 @@ Sample Data
 		"updatedAt": "2022-01-24T14:53:06.748Z",
 		"__v": 0
 	}
-]
+    ]
 
 
 ## Add Task
 > Post https://todolistbysuyash.herokuapp.com/api/tasks/add
 
-> Data
-{
+    {
 	"title":"Title of the Task..",          // string
 	"assignedTo":"Person name",             // string
 	"priority":"High",                      // string "High" | "Low" | "Medium"
@@ -32,7 +30,7 @@ Sample Data
 	"date":"2021-03-14",                    // string "yyyy-mm-dd"
 	"completed":false,                      // boolean
 	"description":"Description string"      // string
-}
+    }
 
 ## Delete Task
 > DELETE https://todolistbysuyash.herokuapp.com/api/tasks/delete/id
@@ -44,7 +42,7 @@ Sample Data
 
 > PUT https://todolistbysuyash.herokuapp.com/api/tasks/update/id
 
-{
+    {
 	"title":"Title of the Task..",          // string
 	"assignedTo":"Person name",             // string
 	"priority":"High",                      // string "High" | "Low" | "Medium"
@@ -52,7 +50,7 @@ Sample Data
 	"date":"2021-03-14",                    // string "yyyy-mm-dd"
 	"completed":false,                      // boolean
 	"description":"Description string"      // string
-}
+    }
 
 ## Get Completed Tasks 
 
@@ -71,23 +69,23 @@ Sample Data
 
 	{         
 	"priority":"High"  
-}
+    }
 
 ### Assigned 
 > GET https://todolistbysuyash.herokuapp.com/api/tasks/completedTask/filter/assigned/
 
 	{         
 	"priority":"High"  
-}
+    }
 
 ### Date Range
 > GET https://todolistbysuyash.herokuapp.com/api/tasks/completedTask/filter/dateRange/
 
 
 	{         
-	"from":"2022-12-14"      ,
-		"to":"2023-12-15"
-}
+	"from":"2022-12-14",
+	"to":"2023-12-15"
+    }
 
 
 
@@ -111,20 +109,20 @@ Sample Data
 
 	{         
 	"priority":"High"  
-}
+    }
 
 ### Assigned 
 > GET https://todolistbysuyash.herokuapp.com/api/tasks/pendingTask/filter/assigned/
 
 	{         
 	"priority":"High"  
-}
+    }
 
 ### Date Range
 > GET https://todolistbysuyash.herokuapp.com/api/tasks/pendingTask/filter/dateRange/
 
 
 	{         
-	"from":"2022-12-14"      ,
-		"to":"2023-12-15"
-}
+	"from":"2022-12-14",
+    "to":"2023-12-15"
+    }
