@@ -33,14 +33,14 @@
     }
 
 ## Delete Task
-> DELETE https://todolistbysuyash.herokuapp.com/api/tasks/delete/id
+> DELETE https://todolistbysuyash.herokuapp.com/api/tasks/delete/TaskId
 
 ## Display Task by ID
-> GET https://todolistbysuyash.herokuapp.com/api/tasks/id
+> GET https://todolistbysuyash.herokuapp.com/api/tasks/TaskId
 
 ## Update Task
 
-> PUT https://todolistbysuyash.herokuapp.com/api/tasks/update/id
+> PUT https://todolistbysuyash.herokuapp.com/api/tasks/update/TaskId
 
     {
 	"title":"Title of the Task..",          // string
