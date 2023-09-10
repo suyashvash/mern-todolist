@@ -43,7 +43,8 @@ taskRouter.route("/add").post((req, res) => {
 });
 
 taskRouter.route("/getTask/:id").get((req, res) => {
-  Task.findById(req.params.id)
+  const authHeader = req.get("UserId");
+  Task.find({ _id: req.params.id, createdBy: authHeader })
     .then((task) => {
       res.json(task);
     })
@@ -57,7 +58,8 @@ taskRouter.route("/delete/:id").delete((req, res) => {
 });
 
 taskRouter.route("/update/:id").put((req, res) => {
-  Task.findById(req.params.id)
+  const authHeader = req.get("UserId");
+  Task.find({ _id: req.params.id, createdBy: authHeader })
     .then((task) => {
       task.title = req.body.title;
       task.description = req.body.description;
@@ -75,7 +77,6 @@ taskRouter.route("/update/:id").put((req, res) => {
     })
     .catch((err) => res.status(400).json("Error- " + err));
 });
-
 
 taskRouter.route("/filter/dateRange").get((req, res) => {
   const authHeader = req.get("UserId");
