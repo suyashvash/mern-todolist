@@ -18,12 +18,14 @@ taskRouter.route('/add').post((req, res) => {
     const date = Date.parse(req.body.date);
     const completed = req.body.completed;
     const description = req.body.description;
+    const status = req.body.status;
+    const createdBy = req.body.createdBy;
 
 
-    const newTask = new Task({ title, description, date, assignedTo, priority, duration, completed, });
+    const newTask = new Task({ title, description, date, assignedTo, priority, duration, completed,status,createdBy });
 
     newTask.save()
-        .then(() => res.json('Exercise added!'))
+        .then(() => res.json('Task added!'))
         .catch(err => res.status(400).json('Error: ' + err))
 });
 
@@ -35,7 +37,7 @@ taskRouter.route('/getTask/:id').get((req, res) => {
 
 taskRouter.route('/delete/:id').delete((req, res) => {
     Task.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Exercise Deleted'))
+        .then(() => res.json('Task Deleted'))
         .catch(err => res.status(400).json('Error: - ' + err))
 });
 
@@ -49,9 +51,10 @@ taskRouter.route('/update/:id').put((req, res) => {
             task.priority = req.body.priority;
             task.duration = Number(req.body.duration);
             task.completed = req.body.completed;
+            task.status = req.body.status;
 
             task.save()
-                .then(() => res.json('Exercise updated!'))
+                .then(() => res.json('Task updated!'))
                 .catch(err => res.status(400).json('Error: -' + err));
         })
         .catch(err => res.status(400).json('Error- ' + err))

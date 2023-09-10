@@ -10,6 +10,8 @@ const taskSchema = Schema({
     priority: { type: String, required: true },
     duration: { type: Number, required: true },
     completed: { type: Boolean, required: true },
+    status: { type: String, required: true },
+    createdBy: { type: String, required: true },
 
 }, { timestamps: true });
 
