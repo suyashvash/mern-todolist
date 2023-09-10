@@ -59,8 +59,12 @@ taskRouter.route("/delete/:id").delete((req, res) => {
 
 taskRouter.route("/update/:id").put((req, res) => {
   const authHeader = req.get("UserId");
-  Task.find({ _id: req.params.id, createdBy: authHeader })
+  Task.findOne({ _id: req.params.id, createdBy: authHeader })
     .then((task) => {
+      if (!task) {
+        return res.status(404).json("Task not found for "+req.params.id);
+      }
+
       task.title = req.body.title;
       task.description = req.body.description;
       task.date = Date.parse(req.body.date);
